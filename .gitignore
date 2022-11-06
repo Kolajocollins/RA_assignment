@@ -1,0 +1,8 @@
+#rust build json
+
+.rustc_info.json
+
+#debug folder
+target/debug
+
+.d
