@@ -24,12 +24,22 @@ fn egcd(a:i64,b:i64) ->(i64,i64,i64)
 }
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let args: Vec<String> = env::args().collect(); //getting the arguments required
 
-    if args.len() < 2 {
-        panic!("not enough arguments");
+    if args.len() < 2 {//error handling to be sure correct number of arguments is passed
+        panic!("Not enough arguments");
     }
+    let num1 =args[1].parse::<i64>().unwrap();
+    let num2 = args[2].parse::<i64>().unwrap();
 
-    let (a,b,_c)= egcd(42823,6409);
+    let (a,b,_c)= egcd(num1,num2);
     println!("Hello, world!={}",a);
+
+    if a==1{
+        let modinverse_result:i64 = (b % num2 + num2) % num2;
+        println!("The inverse is {}",modinverse_result);
+    }
+    else   {
+        println!("The inverse does not exist");
+    }
 }
