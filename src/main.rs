@@ -19,7 +19,7 @@ fn egcd(a:i64,b:i64) ->(i64,i64,i64)
     {
         let(g,x,y)= egcd(b%a,a);
         let d = y - (b / a) * x;
-        (g,d,x)
+        (g,d,x) //the returns the response for the egcd
     }
 }
 
@@ -27,7 +27,7 @@ fn main() {
     let args: Vec<String> = env::args().collect(); //getting the arguments required
 
     if args.len() < 2 {//error handling to be sure correct number of arguments is passed
-        panic!("Not enough arguments");
+        panic!("Not enough arguments");//Panics are explained in detail here: https://doc.rust-lang.org/std/macro.panic.html
     }
     let num1 =args[1].parse::<i64>().unwrap();
     let num2 = args[2].parse::<i64>().unwrap();
@@ -39,7 +39,7 @@ fn main() {
         let modinverse_result:i64 = (b % num2 + num2) % num2;
         println!("The inverse is {}",modinverse_result);
     }
-    else   {
+    else{
         println!("The inverse does not exist");
     }
 }
