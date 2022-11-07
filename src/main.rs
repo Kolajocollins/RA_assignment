@@ -33,7 +33,7 @@ fn main() {
     let num2 = args[2].parse::<i64>().unwrap();
 
     let (a,b,_c)= egcd(num1,num2);
-    println!("Hello, world!={}",a);
+   // println!("Hello, world!={}",a);
 
     if a==1{
         let modinverse_result:i64 = (b % num2 + num2) % num2;
